@@ -9,43 +9,60 @@
 <body>
   <header>
     <div class="container nav">
-      <img src="images/logo.png" alt="SniffVault" class="logo">
+      <a href="#" class="logo"><img src="images/logo.png" alt="SniffVault"></a>
       <nav>
         <a href="#product">Shop</a>
-        <a href="#cart">Cart</a>
+        <a href="#how-it-works">How it Works</a>
+        <a href="#specs">Specs</a>
+        <a href="#faq">FAQ</a>
       </nav>
-      <div class="cart-badge" id="cart-badge">0</div>
+      <div class="cart-badge" id="cart-badge" aria-label="items in cart">0</div>
+      <button class="btn btn-icon" id="open-cart" aria-label="Open cart"></button>
     </div>
   </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="badge">New &mdash; Timed Foraging Puzzle</span>
+        <h1>4&ndash;6 hours of calm, happy foraging while you're away.</h1>
+        <p>One drawer unlocks every 60&ndash;90 minutes (4&ndash;6 hours total) to keep your dog busy, engaged, and out of trouble.</p>
+        <a href="#product" class="btn btn-hero">Shop SniffVault &mdash; $79</a>
+      </div>
+      <div class="hero-media">
+        <img src="images/lifestyle.png" alt="Dog playing with SniffVault" class="hero-img">
+      </div>
+    </div>
+  </section>
 
   <section id="product" class="product-section">
     <div class="container product-grid">
       <div class="product-media">
-        <img src="images/main.png" alt="SniffVault charcoal" id="main-img" class="main-img">
+        <img src="images/charcoal.png" alt="SniffVault" id="main-img" class="main-img">
         <div class="thumbs">
-          <img src="images/main.png" alt="Main" class="thumb active" onclick="setThumb(this, 'images/main.png')">
-          <img src="images/charcoal.png" alt="Charcoal" class="thumb" onclick="setThumb(this, 'images/charcoal.png')">
-          <img src="images/drawers.png" alt="Drawers" class="thumb" onclick="setThumb(this, 'images/drawers.png')">
-          <img src="images/inserts.png" alt="Inserts" class="thumb" onclick="setThumb(this, 'images/inserts.png')">
-          <img src="images/lifestyle.png" alt="Lifestyle" class="thumb" onclick="setThumb(this, 'images/lifestyle.png')">
+          <img src="images/charcoal.png" alt="Charcoal" class="thumb active" data-src="images/charcoal.png" onclick="setThumb(this)">
+          <img src="images/main.png" alt="Sage" class="thumb" data-src="images/main.png" onclick="setThumb(this)">
+          <img src="images/drawers.png" alt="Drawers" class="thumb" data-src="images/drawers.png" onclick="setThumb(this)">
+          <img src="images/inserts.png" alt="Lick insert" class="thumb" data-src="images/inserts.png" onclick="setThumb(this)">
+          <img src="images/lifestyle.png" alt="Lifestyle" class="thumb" data-src="images/lifestyle.png" onclick="setThumb(this)">
         </div>
       </div>
       <div class="product-info">
-        <h1>SniffVault</h1>
+        <h2>SniffVault</h2>
         <p class="subtitle">4-drawer timed dog puzzle</p>
-        <p class="desc">One drawer unlocks every 4&ndash;6 hours to keep your dog busy and mentally engaged all day long.</p>
+        <p class="desc">One drawer unlocks every 60&ndash;90 minutes (4&ndash;6 hours total) to keep your dog busy and mentally engaged all day long.</p>
 
         <div class="color-selector">
           <span class="label">Color</span>
-          <button class="color-swatch charcoal selected" data-color="charcoal" onclick="selectColor(this, 'charcoal')"></button>
-          <button class="color-swatch sage" data-color="sage" onclick="selectColor(this, 'sage')"></button>
+          <button class="color-swatch charcoal selected" data-color="charcoal" data-img="images/charcoal.png" onclick="selectColor(this)"></button>
+          <button class="color-swatch sage" data-color="sage" data-img="images/main.png" onclick="selectColor(this)"></button>
         </div>
 
         <div class="price">$79</div>
 
         <div class="addon">
           <input type="checkbox" id="addon" checked>
-          <label for="addon">Add silicone link insert &mdash; +$14</label>
+          <label for="addon">Add silicone lick insert &mdash; +$14</label>
         </div>
 
         <div class="qty">
@@ -58,17 +75,147 @@
     </div>
   </section>
 
-  <section id="cart" class="cart-section">
+  <section id="how-it-works" class="how-it-works">
     <div class="container">
-      <h2>Your Cart</h2>
-      <div id="cart-items"></div>
-      <div class="cart-total">
-        <span>Total</span>
-        <span id="cart-total">$0</span>
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub">A timed release that keeps foraging fresh all day.</p>
+      <div class="timeline">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-time">Hour 1</div>
+          <div class="step-text">Drawer 1 unlocks &mdash; first challenge begins.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-time">Hour 2.5</div>
+          <div class="step-text">Drawer 2 unlocks &mdash; new scent, new hunt.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-time">Hour 4</div>
+          <div class="step-text">Drawer 3 unlocks &mdash; keeps the curiosity going.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-time">Hour 6</div>
+          <div class="step-text">Drawer 4 unlocks &mdash; the final reward.</div>
+        </div>
       </div>
-      <button class="btn btn-primary" id="checkout-btn">Guest Checkout</button>
     </div>
   </section>
+
+  <section id="comparison" class="comparison">
+    <div class="container">
+      <h2 class="section-title">SniffVault vs. ordinary puzzles</h2>
+      <div class="compare-table">
+        <div class="compare-head"></div>
+        <div class="compare-col sniffvault">
+          <div class="compare-name">SniffVault</div>
+          <div class="compare-row"><span class="compare-label">Foraging time</span><span class="compare-val yes">4&ndash;6 hours</span></div>
+          <div class="compare-row"><span class="compare-label">Timed release</span><span class="compare-val yes">Yes</span></div>
+          <div class="compare-row"><span class="compare-label">Drawers</span><span class="compare-val yes">4</span></div>
+          <div class="compare-row"><span class="compare-label">Weighted base</span><span class="compare-val yes">Tip-proof</span></div>
+          <div class="compare-row"><span class="compare-label">Battery</span><span class="compare-val yes">14 days, USB-C</span></div>
+        </div>
+        <div class="compare-col normal">
+          <div class="compare-name">Normal puzzle</div>
+          <div class="compare-row"><span class="compare-label">Foraging time</span><span class="compare-val no">~10 minutes</span></div>
+          <div class="compare-row"><span class="compare-label">Timed release</span><span class="compare-val no">No</span></div>
+          <div class="compare-row"><span class="compare-label">Drawers</span><span class="compare-val no">1</span></div>
+          <div class="compare-row"><span class="compare-label">Weighted base</span><span class="compare-val no">No</span></div>
+          <div class="compare-row"><span class="compare-label">Battery</span><span class="compare-val no">None</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specs" class="specs">
+    <div class="container">
+      <h2 class="section-title">Specifications</h2>
+      <div class="specs-grid">
+        <div class="spec-card">
+          <div class="spec-icon">&#9881;</div>
+          <h3>Tip-proof weighted base</h3>
+          <p>Stays put even when your dog paws and nudges hard.</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-icon">&#128075;</div>
+          <h3>Chew-resistant, BPA-free</h3>
+          <p>Food-safe materials built for enthusiastic chewers.</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-icon">&#128451;</div>
+          <h3>Dishwasher-safe drawers</h3>
+          <p>Pop the drawers out and rinse &mdash; easy cleanup.</p>
+        </div>
+        <div class="spec-card">
+          <div class="spec-icon">&#128267;</div>
+          <h3>14-day USB-C battery</h3>
+          <p>Charges once, lasts two weeks of timed foraging.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">How does the timed release work?</button>
+          <div class="faq-a">One drawer unlocks every 60&ndash;90 minutes, over a 4&ndash;6 hour window, so your dog stays engaged all day.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is it safe for chewers?</button>
+          <div class="faq-a">Yes. SniffVault is chew-resistant and BPA-free with a tip-proof weighted base.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I wash the drawers?</button>
+          <div class="faq-a">Absolutely &mdash; the drawers are dishwasher-safe for easy cleaning.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How long does the battery last?</div>
+          <div class="faq-a">The USB-C rechargeable battery lasts up to 14 days on a single charge.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <h2 class="section-title">What parents are saying</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Finally something that keeps our lab busy for hours instead of minutes. Worth every cent."</p>
+          <span class="reviewer">&mdash; Maya R.</span>
+        </div>
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"The timed drawers are genius. No more destroyed couch cushions while we're out."</p>
+          <span class="reviewer">&mdash; Joel T.</span>
+        </div>
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Easy to clean, great battery life, and our dog loves the lick insert add-on."</p>
+          <span class="reviewer">&mdash; Priya S.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside id="cart-drawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-drawer-backdrop" id="cart-backdrop"></div>
+    <div class="cart-drawer-panel">
+      <button class="cart-close" id="cart-close">&times;</button>
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total"><span>Total</span><span id="cart-total">$0</span></div>
+        <button class="btn btn-primary" id="checkout-btn">Guest Checkout</button>
+      </div>
+    </div>
+  </aside>
 
   <section id="checkout" class="checkout-section hidden">
     <div class="container checkout-card">
@@ -89,6 +236,26 @@
         <button class="btn btn-primary" type="submit">Place Order</button>
       </form>
       <div id="checkout-msg"></div>
+    </div>
+  </section>
+
+  <section id="confirmation" class="confirmation-section hidden">
+    <div class="container">
+      <div class="confirmation-card">
+        <div class="confirm-icon">&#10004;</div>
+        <h2>Order Confirmed</h2>
+        <p id="confirm-order-id">Order # <span></span></p>
+        <div class="confirm-items">
+          <h3>Items</h3>
+          <div id="confirm-items-list"></div>
+          <div class="confirm-total"><span>Total</span><span id="confirm-total">$0</span></div>
+        </div>
+        <div class="confirm-shipping">
+          <h3>Shipping to</h3>
+          <p id="confirm-shipping"></p>
+        </div>
+        <button class="btn btn-primary" id="continue-shopping">Continue Shopping</button>
+      </div>
     </div>
   </section>
 
