@@ -6,6 +6,7 @@ init.py
 init (*).py
 submit.py
 hwa-start.*
+opencode.json
 .DS_Store
 dist/
 .vercel
