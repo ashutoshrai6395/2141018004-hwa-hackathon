@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
+  <header class="light">
     <div class="container nav">
       <a href="#" class="logo"><img src="images/logo.png" alt="SniffVault"></a>
       <nav>
@@ -79,26 +79,36 @@
     <div class="container">
       <h2 class="section-title">How it works</h2>
       <p class="section-sub">A timed release that keeps foraging fresh all day.</p>
-      <div class="timeline">
+
+      <div class="away-toggle">
+        <span class="away-label">Away time:</span>
+        <button class="away-btn active" data-hours="4" onclick="setAwayTime(this, 4)">4 hrs</button>
+        <button class="away-btn" data-hours="6" onclick="setAwayTime(this, 6)">6 hrs</button>
+        <button class="away-btn" data-hours="8" onclick="setAwayTime(this, 8)">8 hrs</button>
+      </div>
+
+      <div class="away-note" id="away-note">Each drawer holds a frozen silicone lick tray: <strong>25–30 mins of calming licking + 25–30 mins of rest</strong>, plus a <strong>10 min pre-unlock scent tease</strong> before the next drawer opens &mdash; so your dog stays busy the whole time you're gone.</div>
+
+      <div class="timeline" id="timeline">
         <div class="step">
           <div class="step-num">1</div>
-          <div class="step-time">Hour 1</div>
-          <div class="step-text">Drawer 1 unlocks &mdash; first challenge begins.</div>
+          <div class="step-time" id="t1-time">Hour 1</div>
+          <div class="step-text" id="t1-text">Drawer 1 unlocks &mdash; frozen lick tray + scent tease begins.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <div class="step-time">Hour 2.5</div>
-          <div class="step-text">Drawer 2 unlocks &mdash; new scent, new hunt.</div>
+          <div class="step-time" id="t2-time">Hour 2.5</div>
+          <div class="step-text" id="t2-text">Drawer 2 unlocks &mdash; new scent, new hunt.</div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-time">Hour 4</div>
-          <div class="step-text">Drawer 3 unlocks &mdash; keeps the curiosity going.</div>
+          <div class="step-time" id="t3-time">Hour 4</div>
+          <div class="step-text" id="t3-text">Drawer 3 unlocks &mdash; keeps the curiosity going.</div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
-          <div class="step-time">Hour 6</div>
-          <div class="step-text">Drawer 4 unlocks &mdash; the final reward.</div>
+          <div class="step-time" id="t4-time">Hour 6</div>
+          <div class="step-text" id="t4-text">Drawer 4 unlocks &mdash; the final reward.</div>
         </div>
       </div>
     </div>
@@ -108,7 +118,9 @@
     <div class="container">
       <h2 class="section-title">SniffVault vs. ordinary puzzles</h2>
       <div class="compare-table">
-        <div class="compare-head"></div>
+        <div class="compare-head">
+          <img src="images/drawers.png" alt="SniffVault drawers" class="compare-img">
+        </div>
         <div class="compare-col sniffvault">
           <div class="compare-name">SniffVault</div>
           <div class="compare-row"><span class="compare-label">Foraging time</span><span class="compare-val yes">4&ndash;6 hours</span></div>
@@ -174,9 +186,14 @@
           <div class="faq-a">Absolutely &mdash; the drawers are dishwasher-safe for easy cleaning.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">How long does the battery last?</div>
+          <button class="faq-q">How long does the battery last?</button>
           <div class="faq-a">The USB-C rechargeable battery lasts up to 14 days on a single charge.</div>
         </div>
+        <div class="faq-item">
+          <button class="faq-q">Why does it last all day?</button>
+          <div class="faq-a">Each drawer uses a frozen silicone lick tray: your dog gets 25&ndash;30 minutes of calming licking, then 25&ndash;30 minutes of rest. Before the next drawer opens, a 10-minute pre-unlock scent tease builds anticipation. One drawer unlocks every 60&ndash;90 minutes across a 4&ndash;6 hour window, so your dog stays busy the entire time you're away.</div>
+        </div>
+      </div>
       </div>
     </div>
   </section>

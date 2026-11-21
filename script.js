@@ -214,4 +214,46 @@ document.getElementById('cart-backdrop').addEventListener('click', closeCart);
 document.getElementById('addon').addEventListener('change', (e) => { state.addon = e.target.checked; renderCart(); });
 document.getElementById('qty').addEventListener('input', (e) => { state.qty = parseInt(e.target.value) || 1; });
 
+// FAQ toggle
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+
+// Away-time schedule
+const SCHEDULES = {
+  4: [1, 1.75, 2.5, 3.25],
+  6: [1, 2.5, 4, 5.5],
+  8: [1, 3, 5, 7],
+};
+
+function formatTime(h) {
+  const whole = Math.floor(h);
+  const min = Math.round((h - whole) * 60);
+  if (min === 0) return `Hour ${whole}`;
+  return `Hour ${whole}:${min.toString().padStart(2, '0')}`;
+}
+
+function stepText(idx, h) {
+  const lick = 'frozen lick tray: 25&ndash;30 min calming lick + 25&ndash;30 min rest';
+  const tease = '10 min pre-unlock scent tease before next drawer';
+  if (idx === 0) return `Drawer ${idx + 1} unlocks &mdash; ${lick} begins.`;
+  if (idx === 3) return `Drawer ${idx + 1} unlocks &mdash; the final reward.`;
+  return `Drawer ${idx + 1} unlocks &mdash; ${tease}.`;
+}
+
+window.setAwayTime = function (btn, hours) {
+  document.querySelectorAll('.away-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const times = SCHEDULES[hours] || SCHEDULES[6];
+  for (let i = 0; i < 4; i++) {
+    const tEl = document.getElementById(`t${i + 1}-time`);
+    const dEl = document.getElementById(`t${i + 1}-text`);
+    tEl.textContent = formatTime(times[i]);
+    dEl.innerHTML = stepText(i, times[i]);
+  }
+};
+
 renderCart();
